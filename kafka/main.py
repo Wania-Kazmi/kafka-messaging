@@ -16,7 +16,7 @@ app = FastAPI(
     version="0.0.1",
     servers=[
         {
-            "url": "http://localhost:8000",  # ADD NGROK URL Here Before Creating GPT Action
+            "url": "http://localhost:8000/",  # ADD NGROK URL Here Before Creating GPT Action
             "description": "Development Server"
         }
     ]
@@ -28,38 +28,3 @@ app.include_router(route)
 async def Home():
     return "welcome home"
 
-
-
-
-# from fastapi import FastAPI
-# from contextlib import asynccontextmanager
-# from typing import AsyncGenerator
-# from kafka.router_file import consume, route
-# import asyncio
-
-
-# @asynccontextmanager
-# async def lifespan(app: FastAPI)-> AsyncGenerator[None, None]:
-#     print("Initializing...")
-#     asyncio.create_task(consume())
-#     yield
-
-
-
-# app = FastAPI(lifespan=lifespan, title="Hello World API with kafka", 
-#     version="0.0.1",
-#     servers=[
-#         {
-#             "url": "http://127.0.0.1:8000", # ADD NGROK URL Here Before Creating GPT Action
-#             "description": "Development Server"
-#         }
-#         ])
-
-# app.include_router(route)
-
-# @app.get('/')
-# async def Home():
-#     return "welcome home"
-
-# # app.include_router(route)
-# # asyncio.create_task(consume())
